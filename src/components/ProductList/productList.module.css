@@ -1,0 +1,27 @@
+.container h1 {
+  text-transform: uppercase;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  row-gap: 20px;
+  column-gap: 10px;
+  padding: 0;
+  list-style: none;
+}
+
+.buttons-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+}
+
+@media screen and (max-width: 478px) {
+  .buttons-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+}

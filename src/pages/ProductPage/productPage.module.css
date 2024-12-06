@@ -1,0 +1,36 @@
+.container {
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.productImage {
+  max-width: 100%;
+  height: auto;
+}
+
+.productName {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.productDescription {
+  font-size: 1rem;
+  color: #555;
+}
+
+.backButton {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.backButton:hover {
+  background-color: #0056b3;
+}

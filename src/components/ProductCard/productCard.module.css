@@ -1,0 +1,98 @@
+.gallery-item {
+  position: relative;
+  max-inline-size: 400px;
+  margin: auto;
+  transition: color 0.2s ease;
+}
+
+.gallery-item:hover {
+  cursor: pointer;
+  color: #007bff;
+}
+
+.gallery-item-large:hover {
+  color: inherit;
+  cursor: default;
+}
+
+.gallery-item h2 {
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.img-wrapper {
+  inline-size: 100%;
+  block-size: 300px;
+  display: block;
+  position: relative;
+  overflow: hidden;
+}
+
+.img-wrapper img {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+}
+
+.img-wrapper::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: 0;
+  inline-size: 100%;
+  block-size: 38px;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.8),
+    rgba(0, 0, 0, 0) 100%
+  );
+  z-index: 1;
+  pointer-events: none;
+  filter: blur(3px);
+}
+
+.likeIcon {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  cursor: pointer;
+  fill: white;
+  transition: fill 0.2s ease, scale 0.2s ease;
+  z-index: 10;
+}
+
+.liked {
+  fill: lightcoral;
+}
+
+.binIcon {
+  position: absolute;
+  fill: white;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
+  transition: scale 0.2s ease;
+  z-index: 10;
+}
+
+.editIcon {
+  position: absolute;
+  fill: white;
+  top: 5px;
+  right: 30px;
+  cursor: pointer;
+  transition: scale 0.2s ease;
+  z-index: 10;
+}
+
+.binIcon:hover, .likeIcon:hover, .editIcon:hover {
+  scale: 1.2;
+}
+
+.two-lines-text {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
