@@ -27,20 +27,20 @@ const initialState: ProductsState = {
 export const fetchProducts = createAsyncThunk<Product[]>(
   'products/fetchProducts',
   async () => {
-    const factsResponse = await fetch('https://cat-fact.herokuapp.com/facts');
-    const facts: CatFact[] = await factsResponse.json();
+    const factsResponse = await fetch('https://catfact.ninja/facts');
+    const { data } = await factsResponse.json();
 
-    const imageRequests = facts.map(() =>
+    const imageRequests = data.map(() =>
       fetch(`https://cataas.com/cat?${Math.random()}`)
         .then(response => response.url)
     );
 
     const images = await Promise.all(imageRequests);
     
-    return facts.map((fact: any, index: number) => ({
-      id: fact._id,
+    return data.map((fact: any, index: number) => ({
+      id: index.toString(),
       name: 'Fun fact about cats',
-      description: fact.text,
+      description: fact.fact,
       image: images[index],
       isLiked: false,
     }));
@@ -73,17 +73,12 @@ const productsSlice = createSlice({
       state.products = state.products.filter(product => product.id !== action.payload);
     },
     editProduct: (state, action: PayloadAction<Product>) => {
-      console.log('Products in state:', state.products);
-      console.log('Product to edit:', action.payload);
       const updatedProduct = action.payload;
-      console.log('ID to edit:', updatedProduct.id);
       const productIndex = state.products.findIndex((product) => product.id === updatedProduct.id);
     
       if (productIndex !== -1) {
         state.products[productIndex] = { ...state.products[productIndex], ...updatedProduct };
-        console.log('Updated product:', state.products[productIndex]);
       } else {
-        console.error('Product not found:', updatedProduct.id);
       }
     },
   },

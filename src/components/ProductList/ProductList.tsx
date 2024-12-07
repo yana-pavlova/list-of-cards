@@ -20,7 +20,7 @@ const ProductList: React.FC = () => {
         <button type='button' className="button" onClick={() => setShowFavorites(!showFavorites)}>
           {showFavorites ? 'Показать все' : 'Показать избранное'}
         </button>
-        <Link className='button' to="/create-product">Добавить новый продукт</Link>
+        <Link className='button' to="/create-product">Добавить новый факт</Link>
       </div>
       <p>Количество продуктов: {products.length}</p>
       <ul className={styles.gallery}>
